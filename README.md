@@ -22,6 +22,6 @@ Taking feedback for feature requests, bugs and better text lines or textures if 
 
 Todo:
 * SlashHandler
-  *Toggle
- *Config
+  * Toggle
+  * Config
 * Real config?
