@@ -1,0 +1,10 @@
+## Interface: 70200
+## Author: Sanex (Arathor EU)
+## Title: World Quest Groupie
+## Version: @project-version@
+## Notes: World Quest Groupie is a small one button tool to search, apply, join and create world quest groups.
+## RequiredDeps:
+## SavedVariables:
+
+ExternalData.lua
+Core.lua
