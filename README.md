@@ -1,4 +1,4 @@
-# !!! Last update 2017
+## !!! Not under active development, last update 2017
 
 # World Quest Groupie
 
