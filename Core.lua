@@ -415,7 +415,7 @@ do -- GROUP_ROSTER_UPDATE
 		if private.questID and QuestUtils_IsQuestWorldQuest(private.questID) and GetNumGroupMembers(LE_PARTY_CATEGORY_HOME) > 0 then
 			local _, _, _, rarity = GetQuestTagInfo(private.questID);
 			if not IsInRaid() and UnitIsGroupLeader("player") and rarity == LE_WORLD_QUEST_QUALITY_EPIC then
-				ConvertToRaid()
+				C_PartyInfo.ConvertToRaid() -- ConvertToRaid()
 			end
 		end
 	end
@@ -458,11 +458,11 @@ do -- QUEST_REMOVED / QUEST_TURNED_IN
 						Print("WorldQuest completed, leaving group in %d seconds.", leaveDelay)
 					end
 					C_Timer.After(leaveDelay, function()
-						LeaveParty()
+						C_PartyInfo.LeaveParty() -- LeaveParty()
 					end)
 				else
 					Print("WorldQuest completed.")
-					LeaveParty()
+					C_PartyInfo.LeaveParty() -- LeaveParty()
 				end
 
 				PlaySound("ReadyCheck");
@@ -681,7 +681,8 @@ function private.processQuest(questID)
 end
 
 hooksecurefunc("ObjectiveTracker_Update", function(reason, questID)
-	if reason ~= OBJECTIVE_TRACKER_UPDATE_WORLD_QUEST_ADDED or GetCurrentMapAreaID() == 978 then -- not in Ashran
+	--if reason ~= OBJECTIVE_TRACKER_UPDATE_WORLD_QUEST_ADDED or GetCurrentMapAreaID() == 978 then -- not in Ashran
+	if reason ~= OBJECTIVE_TRACKER_UPDATE_WORLD_QUEST_ADDED or (WorldMapFrame and WorldMapFrame:GetMapID() == 978) then -- not in Ashran
 		return
 	end
 
